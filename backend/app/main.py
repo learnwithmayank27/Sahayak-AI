@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from app.api.routes import chat, health
 from app.core.middleware import global_exception_handler
+from app.db.qdrant_client import init_collection
 
 app = FastAPI(title="Shayak AI")
 
@@ -14,3 +15,8 @@ app.add_exception_handler(Exception, global_exception_handler)
 @app.get("/")
 def root():
     return {"message": "Shayak AI Backend Running"}
+
+#startup
+@app.on_event("startup")
+async def startup():
+    init_collection()

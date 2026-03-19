@@ -6,8 +6,8 @@ router = APIRouter()
 
 class ChatRequest(BaseModel):
     message: str
+    session_id: str = "default"
 
 @router.post("/chat")
 async def chat(req: ChatRequest):
-    response = await process_chat(req.message)
-    return response
+    return await process_chat(req.message, req.session_id)
