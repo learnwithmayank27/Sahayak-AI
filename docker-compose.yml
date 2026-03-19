@@ -14,6 +14,8 @@ services:
     depends_on:
       - redis
       - qdrant
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   frontend:
     build: ./frontend

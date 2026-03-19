@@ -7,3 +7,4 @@ httpx
 redis
 qdrant-client
 sentence-transformers
+google-genai
