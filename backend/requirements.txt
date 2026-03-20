@@ -8,3 +8,7 @@ redis
 qdrant-client
 sentence-transformers
 google-genai
+passlib[bcrypt]
+python-jose
+sqlalchemy
+bcrypt==4.0.1
